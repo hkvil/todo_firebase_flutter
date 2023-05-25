@@ -3,7 +3,7 @@ import 'package:todo_firebase_flutter/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_firebase_flutter/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static const id = 'registration_screen';
@@ -68,11 +68,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 });
                 try{
                   final createdUser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-                  if(createdUser != null){
-                    Navigator.pushNamed(context, ChatScreen.id);
-                  }else{
-                    print("fail to create user");
-                  }
+                  // if(createdUser != null){
+                  //   Navigator.pushNamed(context, ChatScreen.id);
+                  // }else{
+                  //   print("fail to create user");
+                  // }
                   setState(() {
                     showSpinner = false;
                   });
