@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_firebase_flutter/screens/add_task_screen.dart';
-import 'package:todo_firebase_flutter/components/task_tile.dart';
 import 'package:todo_firebase_flutter/components/tasks_list.dart';
-import 'package:todo_firebase_flutter/models/task.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_firebase_flutter/models/task_provider.dart';
 
@@ -39,6 +37,7 @@ class TasksScreen extends StatelessWidget {
                 ),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     '${Provider.of<TaskProvider>(context).tasks.length} Tasks',
@@ -47,18 +46,12 @@ class TasksScreen extends StatelessWidget {
                       fontSize: 18,
                     ),
                   ),
-                  SizedBox(width: 60),
                   ElevatedButton(
                       onPressed: (){
                         '${Provider.of<TaskProvider>(context,listen: false).getData()}';
                       },
                       style: ButtonStyle(),
                       child: Text("GET")),
-                  SizedBox(width: 20),
-                  ElevatedButton(
-                      onPressed: (){},
-                      style: ButtonStyle(),
-                      child: Text("SAVE")),
                 ],
               ),
             ],
