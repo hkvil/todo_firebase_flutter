@@ -77,7 +77,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     showSpinner = false;
                   });
                 }catch(e){
-                  print(e);
+                  Navigator.pop(context);
                 }
               }, text: 'Register'),
             ],

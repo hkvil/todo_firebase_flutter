@@ -38,12 +38,28 @@ class TasksScreen extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              Text(
-                '${Provider.of<TaskProvider>(context).tasks.length} Tasks',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                ),
+              Row(
+                children: [
+                  Text(
+                    '${Provider.of<TaskProvider>(context).tasks.length} Tasks',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                  ),
+                  SizedBox(width: 60),
+                  ElevatedButton(
+                      onPressed: (){
+                        '${Provider.of<TaskProvider>(context,listen: false).getData()}';
+                      },
+                      style: ButtonStyle(),
+                      child: Text("GET")),
+                  SizedBox(width: 20),
+                  ElevatedButton(
+                      onPressed: (){},
+                      style: ButtonStyle(),
+                      child: Text("SAVE")),
+                ],
               ),
             ],
           ),

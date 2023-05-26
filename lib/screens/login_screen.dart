@@ -1,9 +1,14 @@
+import 'package:provider/provider.dart';
 import 'package:todo_firebase_flutter/components/rounded_button.dart';
 import 'package:todo_firebase_flutter/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_firebase_flutter/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
+import 'package:todo_firebase_flutter/screens/task_screen.dart';
+import 'package:todo_firebase_flutter/user_id.dart';
+
+import '../models/task_provider.dart';
 
 class LoginScreen extends StatefulWidget {
   static const id = 'login_screen';
@@ -67,15 +72,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   showSpinner = true;
                 });
                 try{
-                  // final logInUser = await _auth.signInWithEmailAndPassword(email: email, password: password);
-                  // if(await _auth.currentUser!=null){
-                  //   Navigator.pushNamed(context,ChatScreen.id);
-                  // }
+                  final logInUser = await _auth.signInWithEmailAndPassword(email: email, password: password);
+                  LocalUser.currentUserId = _auth.currentUser!.uid;
+                  if(await _auth.currentUser!=null){
+                    Provider.of<TaskProvider>(context,listen: false).getData();
+                    Navigator.pushNamed(context,TasksScreen.id);
+                  }
                   setState(() {
                     showSpinner = false;
                   });
                 }catch(e){
-                  print(e);
+                  Navigator.pop(context);
                 }
 
               }, text: 'Log In'),
