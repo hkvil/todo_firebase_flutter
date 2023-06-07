@@ -40,6 +40,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Flexible(
                   child: Hero(
@@ -52,7 +53,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 ),
                 AnimatedTextKit(
                   animatedTexts: [
-                    TypewriterAnimatedText('Flash Chat',
+                    TypewriterAnimatedText(kAppName,
                         textStyle: kWelcomeTextStyle,
                         speed: Duration(milliseconds: 200)),
                   ],isRepeatingAnimation: true,

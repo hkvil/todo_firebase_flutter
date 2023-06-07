@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_firebase_flutter/constants.dart';
 import 'package:todo_firebase_flutter/screens/add_task_screen.dart';
 import 'package:todo_firebase_flutter/components/tasks_list.dart';
 import 'package:provider/provider.dart';
@@ -28,14 +29,7 @@ class TasksScreen extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Text(
-                'Todoey',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 50,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+              Text(kAppName, style: kTitleTextStyleTaskScreen),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -46,12 +40,12 @@ class TasksScreen extends StatelessWidget {
                       fontSize: 18,
                     ),
                   ),
-                  ElevatedButton(
-                      onPressed: (){
-                        '${Provider.of<TaskProvider>(context,listen: false).getData()}';
-                      },
-                      style: ButtonStyle(),
-                      child: Text("GET")),
+                  // ElevatedButton(
+                  //     onPressed: () {
+                  //       '${Provider.of<TaskProvider>(context, listen: false).getData()}';
+                  //     },
+                  //     style: ButtonStyle(),
+                  //     child: Text("GET")),
                 ],
               ),
             ],
@@ -71,9 +65,14 @@ class TasksScreen extends StatelessWidget {
       ]),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showModalBottomSheet(context: context, builder:(context) => SingleChildScrollView(child: Container
-            (padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-              child: AddTaskScreen())),isScrollControlled: true);
+          showModalBottomSheet(
+              context: context,
+              builder: (context) => SingleChildScrollView(
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom),
+                      child: AddTaskScreen())),
+              isScrollControlled: true);
         },
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
@@ -81,5 +80,3 @@ class TasksScreen extends StatelessWidget {
     );
   }
 }
-
-

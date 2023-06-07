@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const kAppName = "Tododu";
+
 const kSendButtonTextStyle = TextStyle(
   color: Colors.lightBlueAccent,
   fontWeight: FontWeight.bold,
@@ -49,4 +51,10 @@ const kTextFieldDecorationTodo = InputDecoration(
     focusedBorder: UnderlineInputBorder(
       borderSide: BorderSide(width: 5,color: Colors.lightBlueAccent),
     )
+);
+
+const kTitleTextStyleTaskScreen = TextStyle(
+  color: Colors.white,
+  fontSize: 50,
+  fontWeight: FontWeight.w700,
 );
